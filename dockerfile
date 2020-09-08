@@ -1,6 +1,6 @@
 FROM ubuntu
-COPY simpleApp /simpleAppCOPY nodeapp /nodeapp
-WORKDIR /nodeapp
+COPY simpleApp /simpleApp
+WORKDIR /simpleApp
 COPY requirements.txt /simpleApp
 COPY  manage.py /simpleApp
 WORKDIR /simpleApp
