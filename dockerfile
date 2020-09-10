@@ -1,8 +1,9 @@
 FROM ubuntu
-COPY simpleApp /simpleApp
-COPY requirements.txt /simpleApp
-COPY manage.py /simpleApp
-WORKDIR /simpleApp
+Run mkdir simpleApp1
+COPY simpleApp /simpleApp1
+COPY requirements.txt /simpleApp1
+COPY manage.py /simpleApp1
+WORKDIR /simpleApp1
 RUN apt-get update
 RUN apt-get -y install python3-pip
 RUN pip3 install -r requirements.txt
