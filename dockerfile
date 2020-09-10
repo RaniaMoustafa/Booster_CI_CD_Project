@@ -3,6 +3,7 @@ COPY simpleApp /simpleApp
 COPY requirements.txt /simpleApp
 COPY  manage.py /simpleApp
 WORKDIR /simpleApp
+RUN apt-get update
 RUN  pip3 install -r requirements.txt
 RUN  python3.6 manage.py makemigrations
 RUN  python3.6 manage.py migrate
