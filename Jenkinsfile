@@ -17,7 +17,7 @@ pipeline {
         }
       stage('Deploy') {
             steps {
-                sh 'docker run -d -p 172.0.0.1:8000:0.0.0.0:8000 raniamoustafa/jenkins_django:v1.0'
+                sh 'docker run -d -p 172.0.0.1:8000:8000 raniamoustafa/jenkins_django:v1.0'
             }
         }  
     }
