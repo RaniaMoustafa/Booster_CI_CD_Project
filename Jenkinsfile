@@ -17,8 +17,19 @@ pipeline {
         }
       stage('Deploy') {
             steps {
-                sh 'docker run -d -p 9000:8000 raniamoustafa/jenkins_django:v1.0'
+                sh 'docker run -d -p 9010:8000 raniamoustafa/jenkins_django:v1.0'
             }
         }  
     }
+  post{
+    success{
+      slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL}console)") 
+    }
+    failure{
+      slackSend (color: '#E83009', message: "Failure: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL}console)") 
+    }
+    aborted{
+      slackSend (color: '#E8E209', message: "ABORTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL}console)") 
+    }
+  }
 }
